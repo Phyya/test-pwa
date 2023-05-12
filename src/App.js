@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
 
 function App() {
 	const [deferredPrompt, setDeferredPrompt] = useState('');
@@ -31,13 +32,9 @@ function App() {
 
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<button onClick={handleInstallButtonClick}>Install App</button>
-			</header>
+			<button onClick={handleInstallButtonClick}>Install App</button>
+			{/* <Login /> */}
+			<Home />
 		</div>
 	);
 }

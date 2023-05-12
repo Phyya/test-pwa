@@ -1,0 +1,11 @@
+.btn {
+	border: none;
+	outline: none;
+	width: 100%;
+	padding: 10px;
+	border-radius: 3px;
+}
+.primaryButton {
+	background-color: #1e40af;
+	color: #fff;
+}

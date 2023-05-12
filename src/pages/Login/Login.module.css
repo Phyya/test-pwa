@@ -1,0 +1,46 @@
+.section {
+	width: 100%;
+	padding: 0 20px;
+	height: 100vh;
+	position: relative;
+}
+.section header {
+	margin-top: 15px;
+}
+.right_image {
+	position: absolute;
+	width: 50%;
+	z-index: -1;
+	right: 0;
+	top: 55px;
+}
+.left_image {
+	position: absolute;
+	width: 90%;
+	z-index: -1;
+	left: 0;
+	bottom: 10px;
+}
+.main_content {
+	margin-top: 100px;
+	text-align: center;
+}
+.heading {
+	color: #1e40af;
+	font-weight: bold;
+	margin: 15px 0;
+}
+.heading h1 span {
+	color: #0dd365;
+}
+.login_content {
+	font-size: 0.7rem;
+	margin-top: 10px;
+}
+.login_content p {
+	margin-bottom: 10px;
+}
+.login_content p span {
+	color: #0dd365;
+	font-weight: bold;
+}

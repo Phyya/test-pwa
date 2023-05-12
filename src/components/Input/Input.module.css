@@ -1,0 +1,15 @@
+.input_container {
+	width: 100%;
+	border: 1px solid lightgray;
+	padding: 15px 7px;
+	margin: 15px 0;
+}
+.input_container span {
+	padding: 6px;
+}
+.input_container input {
+	border: none;
+	outline: none;
+	width: 90%;
+	background-color: transparent;
+}
