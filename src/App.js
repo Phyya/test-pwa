@@ -25,7 +25,6 @@ function App() {
 				} else {
 					console.log('User dismissed the install prompt');
 				}
-				deferredPrompt = null;
 			});
 		} else console.log('No defereed prompt');
 	};
