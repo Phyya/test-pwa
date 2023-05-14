@@ -6,9 +6,8 @@ import './App.css';
 function App() {
 	const navigate = useNavigate();
 	useEffect(() => {
-		window.addEventListener('appinstalled', (event) => {
-			navigate('/optiverse');
-		});
+		let isInstalled = localStorage.getItem('pwaInstalled');
+		if (isInstalled) navigate('home');
 	});
 	return (
 		<div className="App">

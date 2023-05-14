@@ -6,15 +6,14 @@ const Landing = () => {
 	const [deferredPrompt, setDeferredPrompt] = useState('');
 
 	useEffect(() => {
-		console.log('just mounted');
-		window.addEventListener('appinstalled', (event) => {
-			navigate('/optiverse');
-		});
 		window.addEventListener('beforeinstallprompt', (event) => {
 			console.log(event, 'eventlistener here');
 			event.preventDefault();
 			setDeferredPrompt(event);
 			// Show the install button or custom UI element
+		});
+		window.addEventListener('appinstalled', (event) => {
+			localStorage.setItem('pwaInstalled', true);
 		});
 	}, [navigate]);
 
@@ -34,7 +33,7 @@ const Landing = () => {
 
 	return (
 		<div>
-			<h1>SAVESTAR</h1>
+			<h1>{!deferredPrompt ? 'SAVESTAR' : 'Installed'}</h1>
 			<button onClick={handleInstallButtonClick}>Install App</button>
 		</div>
 	);
