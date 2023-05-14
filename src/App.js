@@ -7,7 +7,7 @@ function App() {
 	const navigate = useNavigate();
 	useEffect(() => {
 		let isInstalled = localStorage.getItem('pwaInstalled');
-		if (isInstalled) navigate('home');
+		if (isInstalled) navigate('/optiverse');
 	});
 	return (
 		<div className="App">
