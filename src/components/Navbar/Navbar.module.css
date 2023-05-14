@@ -6,3 +6,9 @@
 	justify-content: space-between;
 	border: 1px solid gray;
 }
+
+.navbar_item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
