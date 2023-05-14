@@ -7,14 +7,14 @@ const Landing = () => {
 
 	useEffect(() => {
 		console.log('just mounted');
+		window.addEventListener('appinstalled', (event) => {
+			navigate('/optiverse');
+		});
 		window.addEventListener('beforeinstallprompt', (event) => {
-			console.log('eventlistener here');
+			console.log(event, 'eventlistener here');
 			event.preventDefault();
 			setDeferredPrompt(event);
 			// Show the install button or custom UI element
-		});
-		window.addEventListener('appinstalled', (event) => {
-			navigate('/optiverse');
 		});
 	}, [navigate]);
 
