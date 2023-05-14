@@ -7,8 +7,13 @@ import logo from '../../images/Optimus_Logo.svg';
 import right_logo from '../../images/right_image_logo.png';
 import left_logo from '../../images/left_image_logo.png';
 import style from './Login.module.css';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
+	const navigate = useNavigate();
+	const handleLogin = () => {
+		navigate('/home');
+	};
 	return (
 		<section className={style.section}>
 			<img className={style.right_image} src={right_logo} alt="right_logo" />
@@ -33,7 +38,7 @@ const Login = () => {
 						type="password"
 					/>
 					<div style={{ marginTop: '25px' }}>
-						<Button text="Sign In" />
+						<Button text="Sign In" onClick={() => handleLogin()} />
 					</div>
 				</div>
 				<div className={style.login_content}>
