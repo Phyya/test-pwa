@@ -9,6 +9,7 @@ function App() {
 		console.log('hii from app');
 		let isInstalled = localStorage.getItem('pwaInstalled');
 		if (isInstalled) navigate('/optiverse');
+		else alert('error');
 	}, []);
 	return (
 		<div className="App">
