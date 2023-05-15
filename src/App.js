@@ -8,6 +8,7 @@ function App() {
 	useEffect(() => {
 		console.log('hii from app');
 		let isInstalled = localStorage.getItem('pwaInstalled');
+		console.log(isInstalled, 'isinstalled');
 		if (isInstalled) navigate('/optiverse');
 		else alert('error');
 	}, [navigate]);
