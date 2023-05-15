@@ -10,7 +10,7 @@ function App() {
 		let isInstalled = localStorage.getItem('pwaInstalled');
 		if (isInstalled) navigate('/optiverse');
 		else alert('error');
-	}, []);
+	}, [navigate]);
 	return (
 		<div className="App">
 			<RoutesComponent />
