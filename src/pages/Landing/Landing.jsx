@@ -12,9 +12,9 @@ const Landing = () => {
 			setDeferredPrompt(event);
 			// Show the install button or custom UI element
 		});
-		window.addEventListener('appinstalled', (event) => {
-			localStorage.setItem('pwaInstalled', true);
-		});
+		// window.addEventListener('appinstalled', (event) => {
+		// 	localStorage.setItem('pwaInstalled', true);
+		// });
 	}, [navigate]);
 
 	const handleInstallButtonClick = () => {
@@ -24,6 +24,7 @@ const Landing = () => {
 			deferredPrompt.userChoice.then((choiceResult) => {
 				if (choiceResult.outcome === 'accepted') {
 					console.log('User accepted the install prompt');
+					localStorage.setItem('savestar_installed', true);
 				} else {
 					console.log('User dismissed the install prompt');
 				}

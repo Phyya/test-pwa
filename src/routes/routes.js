@@ -5,13 +5,11 @@ import Login from '../pages/Login/Login';
 
 function RoutesComponent() {
 	return (
-		<div className="Routes">
-			<Routes>
-				<Route path="/" element={<Landing />} />
-				<Route path="/optiverse" element={<Login />} />
-				<Route path="/home" element={<Home />} />
-			</Routes>
-		</div>
+		<Routes>
+			{/* <Route path="/" element={<Landing />} /> */}
+			<Route path="/" element={<Login />} />
+			<Route path="/home" element={<Home />} />
+		</Routes>
 	);
 }
 
