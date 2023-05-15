@@ -6,7 +6,7 @@ const Input = ({ icon, icon2, type, onChange, placeholder }) => {
 		<div className={style.input_container}>
 			<span>{icon}</span>
 			<input placeholder={placeholder} />
-			{/* <span>{icon2}</span> */}
+			<span>{icon2}</span>
 		</div>
 	);
 };

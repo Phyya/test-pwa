@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiLockOpenAlt } from 'react-icons/bi';
+import { FaRegEyeSlash } from 'react-icons/fa';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import logo from '../../images/Optimus_Logo.svg';
@@ -20,7 +21,6 @@ const Login = () => {
 
 	useEffect(() => {
 		let isInstalled = localStorage.getItem('savestar_installed');
-		alert(isInstalled ? 'is installed' : 'is not installed');
 		if (!isInstalled) {
 			setTimeout(() => {
 				setModalOpen(true);
@@ -30,35 +30,31 @@ const Login = () => {
 
 	useEffect(() => {
 		window.addEventListener('beforeinstallprompt', (event) => {
-			console.log(event, 'eventlistener here');
 			event.preventDefault();
 			setDeferredPrompt(event);
-			// Show the install button or custom UI element
 		});
 	});
 
 	const handleInstall = () => {
-		console.log('button clicked');
 		if (deferredPrompt) {
 			deferredPrompt.prompt();
 			deferredPrompt.userChoice.then((choiceResult) => {
 				if (choiceResult.outcome === 'accepted') {
-					console.log('User accepted the install prompt');
 					localStorage.setItem('savestar_installed', true);
+					setModalOpen(false);
 				} else {
 					console.log('User dismissed the install prompt');
 				}
 			});
-		} else console.log('No defereed prompt');
+		} else console.log('No deferred prompt');
 	};
 
 	return (
 		<section className={style.section}>
 			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-				<Button
-					text="Do you want to install this app?"
-					onClick={handleInstall}
-				/>
+				<h1>Do you want to install this app?</h1>
+				<Button text="Yes" onClick={handleInstall} />
+				<Button text="No" onClick={() => setModalOpen(false)} />
 			</Modal>
 			<img className={style.right_image} src={right_logo} alt="right_logo" />
 			<img className={style.left_image} src={left_logo} alt="left_logo" />
@@ -70,9 +66,9 @@ const Login = () => {
 			<div className={style.main_content}>
 				<p className={style.heading}>
 					Welcome to
-					<p>
+					<span>
 						Opti<span>Verse</span>
-					</p>
+					</span>
 				</p>
 				<div>
 					<Input placeholder="Email/Phone number" icon={<AiOutlineUser />} />
@@ -80,6 +76,7 @@ const Login = () => {
 						placeholder="Enter password"
 						icon={<BiLockOpenAlt />}
 						type="password"
+						icon2={<FaRegEyeSlash />}
 					/>
 					<div style={{ marginTop: '25px' }}>
 						<Button text="Sign In" onClick={() => handleLogin()} />

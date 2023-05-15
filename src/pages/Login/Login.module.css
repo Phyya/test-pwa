@@ -1,46 +1,68 @@
 .section {
 	width: 100%;
-	padding: 0 20px;
-	height: 100vh;
+	height: 100%;
 	position: relative;
 }
 .section header {
-	margin-top: 15px;
+	margin-top: 30px;
 }
 .right_image {
 	position: absolute;
-	width: 50%;
 	z-index: -1;
+	width: 32%;
 	right: 0;
 	top: 55px;
 }
+
 .left_image {
+	width: 50%;
+	bottom: 0px;
 	position: absolute;
-	width: 90%;
 	z-index: -1;
-	left: 0;
-	bottom: 10px;
 }
 .main_content {
 	margin-top: 100px;
 	text-align: center;
+	padding: 0 10px;
 }
 .heading {
 	color: #1e40af;
 	font-weight: bold;
 	margin: 15px 0;
+	font-size: 20px;
 }
-.heading h1 span {
+.heading > span {
+	font-size: 30px;
+	display: block;
+}
+.heading span span {
 	color: #0dd365;
 }
 .login_content {
 	font-size: 0.7rem;
-	margin-top: 10px;
+	margin-top: 30px;
 }
 .login_content p {
 	margin-bottom: 10px;
+	font-size: 16px;
 }
 .login_content p span {
 	color: #0dd365;
 	font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+	.left_image {
+		width: 70%;
+		left: 0;
+		bottom: 10px;
+	}
+	.right_image {
+		width: 50%;
+		right: 0;
+		top: 55px;
+	}
+	.main_content {
+		margin-top: 174px;
+	}
 }

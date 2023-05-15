@@ -6,6 +6,13 @@ import { BsCreditCard } from 'react-icons/bs';
 import style from './Navbar.module.css';
 
 const Navbar = () => {
+	const data = {
+		username: 'Feefee',
+		password: 'MyPassword',
+	};
+
+	const queryString = new URLSearchParams(data).toString();
+	const url = `http://feefee-angular2.netlify.app/login?${queryString}`;
 	return (
 		<section className={style.navbar}>
 			<div className={style.navbar_item}>
@@ -18,7 +25,7 @@ const Navbar = () => {
 			</div>
 			<div className={style.navbar_item}>
 				<MdOutlineSavings />
-				<a href="https://www.google.com">Savings</a>
+				<a href={url}>Savings</a>
 			</div>
 			<div className={style.navbar_item}>
 				<BsCreditCard />

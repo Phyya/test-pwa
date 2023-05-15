@@ -3,9 +3,11 @@
 	border: 1px solid lightgray;
 	padding: 15px 7px;
 	margin: 15px 0;
+	display: flex;
 }
 .input_container span {
 	padding: 6px;
+	margin-right: 10px;
 }
 .input_container input {
 	border: none;
