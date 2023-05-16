@@ -53,7 +53,7 @@ const Home = () => {
 	return (
 		<div style={{ position: 'relative', height: '100vh' }}>
 			<section className={style.home_page}>
-				<header>
+				<header className={style.header}>
 					<div>NF</div>
 					<p>Hello, Nafisat Faruk</p>
 					<FiBell />
@@ -82,7 +82,7 @@ const Home = () => {
 				<div className={style.home_other}>
 					<p>Show more</p>
 					<IoIosArrowDown />
-					<img src={advert} alt="optiverse advert" />
+					<img src={advert} alt="optiverse advert" className={style.img} />
 				</div>
 			</section>
 

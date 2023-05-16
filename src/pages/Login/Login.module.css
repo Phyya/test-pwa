@@ -5,11 +5,13 @@
 }
 .section header {
 	margin-top: 30px;
+	margin-left: 10px;
 }
+
 .right_image {
 	position: absolute;
 	z-index: -1;
-	width: 32%;
+	width: 50%;
 	right: 0;
 	top: 55px;
 }
@@ -20,6 +22,7 @@
 	position: absolute;
 	z-index: -1;
 }
+
 .main_content {
 	margin-top: 100px;
 	text-align: center;
@@ -55,14 +58,10 @@
 	.left_image {
 		width: 70%;
 		left: 0;
-		bottom: 10px;
 	}
 	.right_image {
 		width: 50%;
 		right: 0;
 		top: 55px;
-	}
-	.main_content {
-		margin-top: 174px;
 	}
 }
