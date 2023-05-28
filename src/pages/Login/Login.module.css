@@ -59,6 +59,20 @@
 	color: #0dd365;
 	font-weight: bold;
 }
+.download_Btn {
+	margin: auto;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #1e40af;
+	cursor: pointer;
+}
 
 @media screen and (max-width: 500px) {
 	.left_image {

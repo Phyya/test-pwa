@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineDownload, AiOutlineUser } from 'react-icons/ai';
 import { BiLockOpenAlt } from 'react-icons/bi';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import Button from '../../components/Button/Button';
@@ -9,12 +9,10 @@ import right_logo from '../../images/right_image_logo.png';
 import left_logo from '../../images/left_image_logo.png';
 import style from './Login.module.css';
 import { useNavigate } from 'react-router';
-import Modal from '../../components/Modal/Modal';
-import NotificationPrompt from '../../components/NotificationPrompt/NotificationPrompt';
 
 const Login = () => {
 	const navigate = useNavigate();
-	const [modalOpen, setModalOpen] = useState(false);
+	const [downloadPrompt, setDownloadPropmt] = useState(false);
 	const [deferredPrompt, setDeferredPrompt] = useState('');
 	const handleLogin = () => {
 		navigate('/home');
@@ -24,7 +22,7 @@ const Login = () => {
 		let isInstalled = localStorage.getItem('savestar_installed');
 		if (!isInstalled) {
 			setTimeout(() => {
-				setModalOpen(true);
+				setDownloadPropmt(true);
 			}, 2000);
 		}
 	}, []);
@@ -42,7 +40,7 @@ const Login = () => {
 			deferredPrompt.userChoice.then((choiceResult) => {
 				if (choiceResult.outcome === 'accepted') {
 					localStorage.setItem('savestar_installed', true);
-					setModalOpen(false);
+					setDownloadPropmt(false);
 				} else {
 					console.log('User dismissed the install prompt');
 				}
@@ -55,11 +53,6 @@ const Login = () => {
 			<section className={style.section}>
 				<img className={style.right_image} src={right_logo} alt="right_logo" />
 				<img className={style.left_image} src={left_logo} alt="left_logo" />
-				<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-					<h1>Do you want to install this app?</h1>
-					<Button text="Yes" onClick={handleInstall} />
-					<Button text="No" onClick={() => setModalOpen(false)} />
-				</Modal>
 
 				<header>
 					<img src={logo} alt="optimus_logo" />
@@ -94,7 +87,12 @@ const Login = () => {
 					</div>
 				</div>
 			</section>
-			<NotificationPrompt />
+			{downloadPrompt && (
+				<button onClick={handleInstall} className={style.download_Btn}>
+					<AiOutlineDownload />
+					Download
+				</button>
+			)}
 		</div>
 	);
 };
