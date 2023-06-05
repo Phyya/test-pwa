@@ -18,7 +18,7 @@ const Navbar = () => {
 	// };
 
 	const queryString = new URLSearchParams(data).toString();
-	const url = `http://https://savestar-target.netlify.app/login?${queryString}`;
+	const url = `https://savestar-target.netlify.app/login?${queryString}`;
 	// const url = `http://feefee-angular2.netlify.app/login?${queryString}`;
 	return (
 		<section className={style.navbar}>
