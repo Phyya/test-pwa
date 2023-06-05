@@ -1,13 +1,14 @@
 import React from 'react';
+import { FaSpinner } from 'react-icons/fa';
 import style from './Button.module.css';
 
-const PrimaryButton = ({ text, onClick }) => {
+const PrimaryButton = ({ text, onClick, loading }) => {
 	return (
 		<button
 			className={`${style.btn} ${style.primaryButton} `}
 			onClick={onClick}
 		>
-			{text}
+			{loading ? <FaSpinner className={style.spinner} /> : text}
 		</button>
 	);
 };

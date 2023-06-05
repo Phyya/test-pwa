@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiBell } from 'react-icons/fi';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { GiRollingDices } from 'react-icons/gi';
@@ -10,6 +10,8 @@ import { IoIosArrowDown } from 'react-icons/io';
 import advert from '../../images/advert.jpg';
 import Navbar from '../../components/Navbar/Navbar';
 import style from './Home.module.css';
+import { AiOutlineEye } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const data = [
 	{
@@ -50,27 +52,42 @@ const data = [
 	},
 ];
 const Home = () => {
+	const [user] = useState(JSON.parse(localStorage.getItem('opti-user-detail')));
+	const [showBalance, setShowBalance] = useState(false);
+
 	return (
 		<div style={{ position: 'relative', height: '100vh' }}>
 			<section className={style.home_page}>
 				<header className={style.header}>
 					<div>NF</div>
-					<p>Hello, Nafisat Faruk</p>
+					<p>
+						Hello, {user.firstname} {user.lastname}
+					</p>
 					<FiBell />
 				</header>
 				<div className={style.balance_overview}>
 					<p>Account Balance</p>
 					<div>
-						<p>***********</p>
-						<FaRegEyeSlash />
+						<p>
+							{showBalance
+								? `₦${user.balance.toLocaleString('en-US')}`
+								: '***********'}
+						</p>
+						{showBalance ? (
+							<AiOutlineEye onClick={() => setShowBalance(false)} />
+						) : (
+							<FaRegEyeSlash onClick={() => setShowBalance(true)} />
+						)}
 					</div>
-					<p>Account Number: 2000076874</p>
-					<button>+ Fund Account</button>
+					<p>Account Number: {user.accountNumber}</p>
+					<button>
+						<Link to="/fund-account">+ Fund Account</Link>
+					</button>
 				</div>
 				<p className={style.underline}></p>
 				<div className={style.home_products_container}>
 					{data.map((item) => (
-						<div key={item.icon} style={{ backgroundColor: item.bgColor }}>
+						<div key={item.text} style={{ backgroundColor: item.bgColor }}>
 							<span style={{ backgroundColor: item.iconColor }}>
 								{item.icon}
 							</span>

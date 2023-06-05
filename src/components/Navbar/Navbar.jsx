@@ -7,12 +7,19 @@ import style from './Navbar.module.css';
 
 const Navbar = () => {
 	const data = {
-		username: 'Feefee',
-		password: 'MyPassword',
+		// username: 'Feefee',
+		// password: 'MyPassword',
+		userEmail: 'nafisat@gmail.com',
 	};
+	// const data = {
+	// 	// username: 'Feefee',
+	// 	// password: 'MyPassword',
+	// 	bID: '93a8c70f-165b-4363-c5d5-08db650dbebc',
+	// };
 
 	const queryString = new URLSearchParams(data).toString();
-	const url = `http://feefee-angular2.netlify.app/login?${queryString}`;
+	const url = `http://https://savestar-target.netlify.app/login?${queryString}`;
+	// const url = `http://feefee-angular2.netlify.app/login?${queryString}`;
 	return (
 		<section className={style.navbar}>
 			<div className={style.navbar_item}>

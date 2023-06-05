@@ -1,12 +1,12 @@
 .loginFull {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 }
 
 .section {
 	position: relative;
 	width: 100%;
-	height: 90%;
+	height: 100%;
 	overflow-y: scroll;
 }
 .section header {
@@ -73,7 +73,11 @@
 	color: #1e40af;
 	cursor: pointer;
 }
-
+.errorText {
+	color: red;
+	font-weight: bold;
+	margin: 10px 0;
+}
 @media screen and (max-width: 500px) {
 	.left_image {
 		width: 70%;

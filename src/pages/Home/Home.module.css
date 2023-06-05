@@ -76,6 +76,9 @@
 	border-bottom: 5px solid #1e40af;
 	margin: 20px auto 10px;
 }
+svg {
+	cursor: pointer;
+}
 @media screen and (max-width: 390px) {
 	.home_products_container div {
 		width: 47%;
