@@ -76,7 +76,7 @@ const Home = () => {
 						<p>
 							{showBalance
 								? balanceValue
-									? user.balance - balanceValue
+									? `${(user.balance - balanceValue).toLocaleString('en-US')}`
 									: `₦${user.balance.toLocaleString('en-US')}`
 								: '***********'}
 						</p>
