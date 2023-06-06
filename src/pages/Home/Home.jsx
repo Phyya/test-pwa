@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FiBell } from 'react-icons/fi';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { GiRollingDices } from 'react-icons/gi';
@@ -54,6 +55,10 @@ const data = [
 const Home = () => {
 	const [user] = useState(JSON.parse(localStorage.getItem('opti-user-detail')));
 	const [showBalance, setShowBalance] = useState(false);
+	const location = useLocation();
+	const searchParams = new URLSearchParams(location.search);
+
+	const balanceValue = searchParams.get('balance');
 
 	return (
 		<div style={{ position: 'relative', height: '100vh' }}>
@@ -70,7 +75,9 @@ const Home = () => {
 					<div>
 						<p>
 							{showBalance
-								? `₦${user.balance.toLocaleString('en-US')}`
+								? balanceValue
+									? user.balance - balanceValue
+									: `₦${user.balance.toLocaleString('en-US')}`
 								: '***********'}
 						</p>
 						{showBalance ? (
